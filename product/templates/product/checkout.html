@@ -1,0 +1,26 @@
+{% extends "product/base.html" %}
+{% block content %}
+
+<div class="container mx-auto p-6">
+  <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-2xl font-semibold">
+      Checkout - {{ product.name }}
+    </h2>
+
+    <p class="text-lg text-gray-600">
+      Price: ${{ product.price }}
+    </p>
+
+    <form action="/create-payment/{{ product.id }}/" method="POST">
+      {% csrf_token %}
+      <button
+        id="checkout-button"
+        class="mt-4 bg-green-500 text-white px-6 py-2 rounded-lg"
+      >
+        Pay Now
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
