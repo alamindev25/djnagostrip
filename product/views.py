@@ -41,6 +41,7 @@ def cancel(request):
     return JsonResponse({"status": "Cancelled"})
 
 #Secure the view with csrf_exempt for simplicity in this example
+
 @method_decorator(csrf_exempt, name="dispatch")
 class CreatePaymentView(LoginRequiredMixin, View):
     def post(self, request, product_id):
